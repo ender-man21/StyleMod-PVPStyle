@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "ru.stylemod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClientPacketListenerMixin",
+    "LivingEntityMixin",
+    "EntityBoundSoundInstanceAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
