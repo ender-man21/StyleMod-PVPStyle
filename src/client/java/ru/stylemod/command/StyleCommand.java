@@ -126,11 +126,22 @@ public final class StyleCommand {
                                         })))
                         .then(ClientCommandManager.literal("show")
                                 .then(ClientCommandManager.argument("part", StringArgumentType.word())
+                                        .suggests((ctx, builder) -> {
+                                            for (String name : StyleConfig.SHOW_PARTS) {
+                                                builder.suggest(name);
+                                            }
+                                            return builder.buildFuture();
+                                        })
                                         .then(ClientCommandManager.argument("value", BoolArgumentType.bool())
                                                 .executes(ctx -> {
                                                     String part = StringArgumentType.getString(ctx, "part");
                                                     boolean v = BoolArgumentType.getBool(ctx, "value");
-                                                    StyleConfig.get().setShow(part, v);
+                                                    if (!StyleConfig.get().setShow(part, v)) {
+                                                        ctx.getSource().sendFeedback(Component.literal(
+                                                                "Unknown part '" + part + "'. Choose: "
+                                                                        + String.join(", ", StyleConfig.SHOW_PARTS)));
+                                                        return 0;
+                                                    }
                                                     ctx.getSource().sendFeedback(Component.literal("show " + part + " = " + v));
                                                     return 1;
                                                 }))))

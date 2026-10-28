@@ -149,7 +149,14 @@ public class StyleConfig {
         save();
     }
 
-    public void setShow(String part, boolean v) {
+    /** Valid HUD part names accepted by {@link #setShow(String, boolean)}. */
+    public static final String[] SHOW_PARTS = {
+            "rank", "score", "multiplier", "combo_bar", "bonuses",
+            "jump_reset", "kill_banner", "lunge_counter"
+    };
+
+    /** @return false if {@code part} is not a known HUD part (nothing is changed or saved). */
+    public boolean setShow(String part, boolean v) {
         switch (part) {
             case "rank" -> showRank = v;
             case "score" -> showScore = v;
@@ -160,9 +167,10 @@ public class StyleConfig {
             case "kill_banner" -> showKillBanner = v;
             case "lunge_counter" -> showLungeCounter = v;
             default -> {
-                return;
+                return false;
             }
         }
         save();
+        return true;
     }
 }

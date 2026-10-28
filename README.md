@@ -41,6 +41,29 @@ All reset rules default to `true`:
 - resetOnKill
 - resetOnDeath
 
+### Commands
+
+Client-side commands, no permissions required:
+
+- `/style info` — current score, combo, rank and difficulty
+- `/style reset` — reset style and combat tracking
+- `/style difficulty [harmless|lenient|standard|violent|brutal]` — show or change difficulty
+- `/style config` — show current settings
+- `/style config show <part> <true|false>` — toggle a HUD part (`rank`, `score`, `multiplier`, `combo_bar`, `bonuses`, `jump_reset`, `kill_banner`, `lunge_counter`)
+- `/style config hudx <px>` / `hudy <px>` — move the HUD
+- `/style config jump_reset|reset_on_gamemode|reset_on_kill|reset_on_death <true|false>`
+- `/style config reload` — reload `style-mod.json` from disk
+
 ## Installation
 
 Requires **Minecraft 1.21.11**, **Fabric Loader**, and [Fabric API](https://modrinth.com/mod/fabric-api). Place the mod JAR in the game's `mods` folder and launch the Fabric profile.
+
+## Building from source
+
+Requires JDK 21.
+
+```
+./gradlew build
+```
+
+The mod JAR is written to `build/libs/`.

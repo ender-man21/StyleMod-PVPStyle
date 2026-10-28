@@ -5,7 +5,11 @@
   "name": "Style Mod",
   "description": "Ultrakill-style style meter for Minecraft PvP (client-side)",
   "authors": ["EnderMan21"],
-  "contact": {},
+  "contact": {
+    "homepage": "https://github.com/shadowender21-sketch/StyleMod-PVPStyle",
+    "sources": "https://github.com/shadowender21-sketch/StyleMod-PVPStyle",
+    "issues": "https://github.com/shadowender21-sketch/StyleMod-PVPStyle/issues"
+  },
   "license": "MIT",
   "icon": "assets/style-mod/icon.png",
   "environment": "client",
